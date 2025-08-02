@@ -1,23 +1,36 @@
 // Initialize Swiper for tour cards
 document.addEventListener('DOMContentLoaded', function() {
-    const swipers = document.querySelectorAll('.swiper');
-    
-    swipers.forEach(swiperEl => {
-        new Swiper(swiperEl, {
-            loop: true,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            effect: 'slide',
-            direction: 'vertical',
-            speed: 800,
+    // Function to initialize all swipers
+    function initializeSwipers() {
+        const swipers = document.querySelectorAll('.swiper');
+        
+        swipers.forEach(swiperEl => {
+            // Skip if already initialized
+            if (swiperEl.swiper) return;
+            
+            new Swiper(swiperEl, {
+                loop: true,
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: swiperEl.querySelector('.swiper-pagination'),
+                    clickable: true,
+                },
+                effect: 'slide',
+                direction: 'vertical',
+                speed: 800,
+                spaceBetween: 0,
+                slidesPerView: 1,
+                allowTouchMove: true,
+                grabCursor: true,
+            });
         });
-    });
+    }
+    
+    // Initialize swipers on page load
+    initializeSwipers();
     
     // Function to initialize hover functionality for tour cards
     function initializeCardHover() {
@@ -68,7 +81,10 @@ document.addEventListener('DOMContentLoaded', function() {
     if (showMoreButton) {
         showMoreButton.addEventListener('click', function() {
             // Wait a bit for Alpine.js to render the new cards
-            setTimeout(initializeCardHover, 100);
+            setTimeout(() => {
+                initializeSwipers();
+                initializeCardHover();
+            }, 200);
         });
     }
     

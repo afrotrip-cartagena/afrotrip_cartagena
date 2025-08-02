@@ -7,6 +7,8 @@
     <link rel="icon" type="image/webp" href="img/icon/icon.webp">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.0/dist/cdn.min.js" defer></script>
     <script>
@@ -27,6 +29,22 @@
             }
         }
     </script>
+    <style>
+        /* Configuración para carruseles verticales */
+        .swiper {
+            width: 100%;
+            height: 14rem;
+        }
+        
+        .swiper-slide {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .swiper-vertical > .swiper-wrapper {
+            flex-direction: column;
+        }
+    </style>
 </head>
 <body class="bg-gray-50" x-data="{ mobileMenuOpen: false, showMoreTours: false }">
     <!-- Desktop Sidebar Navigation -->
