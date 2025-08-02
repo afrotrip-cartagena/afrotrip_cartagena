@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afrotripcartagena - Tours en Cartagena de Indias</title>
+    <link rel="icon" type="image/webp" href="img/icon/icon.webp">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.0/dist/cdn.min.js" defer></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'caribbean-red': '#DC2626',
+                        'caribbean-yellow': '#F59E0B',
+                        'caribbean-blue': '#06B6D4',
+                        'caribbean-green': '#10B981',
+                        'caribbean-orange': '#F97316',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50" x-data="{ mobileMenuOpen: false, showMoreTours: false }">
+    <!-- Desktop Sidebar Navigation -->
+    <div class="hidden md:flex fixed left-0 top-0 h-full w-20 bg-gradient-to-b from-blue-100 to-slate-100 shadow-lg z-50 flex-col items-center py-10 border-r border-blue-200">
+        <div class="mb-10">
+            <img src="img/icon/icon.webp" alt="Afrotripcartagena Logo" class="w-10 h-10 rounded-full ring-2 ring-blue-300">
+        </div>
+        <nav class="flex flex-col items-center space-y-8 w-full">
+            <a href="#welcome" class="sidebar-item p-3 rounded-lg transition-all duration-300 hover:bg-purple-500 hover:text-white" data-section="welcome">
+                <i class="fas fa-home text-xl text-gray-600"></i>
+            </a>
+            <a href="#services" class="sidebar-item p-3 rounded-lg transition-all duration-300 hover:bg-purple-500 hover:text-white" data-section="services">
+                <i class="fas fa-umbrella-beach text-xl text-gray-600"></i>
+            </a>
+            <a href="#contact" class="sidebar-item p-3 rounded-lg transition-all duration-300 hover:bg-purple-500 hover:text-white" data-section="contact">
+                <i class="fas fa-envelope text-xl text-gray-600"></i>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Mobile Bottom Navigation -->
+    <div class="md:hidden fixed bottom-0 left-0 right-0 bg-gradient-to-r from-blue-100 to-slate-100 shadow-lg z-50 border-t border-blue-200">
+        <div class="flex justify-around items-center h-16">
+            <a href="#welcome" class="mobile-menu-item flex flex-col items-center justify-center h-full w-full transition-all duration-300 text-gray-600" data-section="welcome">
+                <i class="fas fa-home text-lg"></i>
+                <span class="text-xs mt-1">Inicio</span>
+            </a>
+            <a href="#services" class="mobile-menu-item flex flex-col items-center justify-center h-full w-full transition-all duration-300 text-gray-600" data-section="services">
+                <i class="fas fa-umbrella-beach text-lg"></i>
+                <span class="text-xs mt-1">Tours</span>
+            </a>
+            <a href="#contact" class="mobile-menu-item flex flex-col items-center justify-center h-full w-full transition-all duration-300 text-gray-600" data-section="contact">
+                <i class="fas fa-envelope text-lg"></i>
+                <span class="text-xs mt-1">Contacto</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="md:ml-20 pb-16 md:pb-0">
+        <!-- Welcome Section -->
+        <section id="welcome" class="min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat relative px-4 md:px-8" style="background-image: url('img/icon/fondo.webp');">
+            <!-- Overlay oscuro para mejorar legibilidad del texto -->
+            <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+            
+            <div class="max-w-4xl text-center animate-fade-in relative z-10">
+                <!-- Logo -->
+                <div class="mb-8">
+                    <img src="img/icon/icon.webp" alt="Afrotripcartagena Logo" class="w-24 h-24 md:w-32 md:h-32 mx-auto rounded-full shadow-lg ring-4 ring-white ring-opacity-30">
+                </div>
+                
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">Afrotripcartagena</h1>
+                <p class="text-xl md:text-2xl text-white mb-8">
+                    Tu agencia de tours locales listos para hacerte vivir lo mejor de Cartagena con pasión, cultura y sabor caribeño.
+                </p>
+                <div class="flex justify-center space-x-4">
+                    <a href="#services" class="bg-caribbean-red hover:bg-red-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105">
+                        Ver Tours
+                    </a>
+                    <a href="#contact" class="bg-purple-700 hover:bg-purple-800 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105">
+                        Contactar
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-16 px-4 md:px-8 bg-slate-50">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">Nuestros Tours</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-0 gap-y-4">
+                    <!-- Primeros 9 tours (visibles por defecto) -->
+                    <!-- Tour Card 1 - 4 Islas VIP -->
+                    <div class="tour-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                        <div class="swiper h-56 relative">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/Tour 4 islas vip/1.webp" alt="4 Islas VIP" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Tour 4 islas vip/2.webp" alt="4 Islas VIP" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Tour 4 islas vip/3.webp" alt="4 Islas VIP" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Tour 4 islas vip/4.webp" alt="4 Islas VIP" class="w-full h-full object-cover">
+                                </div>
+                
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">4 Islas VIP</h3>
+                            <p class="text-2xl font-bold text-purple-700 mb-4">$350.000</p>
+                            <div class="tour-description">
+                                <div class="description-content">
+                                    <p class="text-white">
+                                        Experiencia exclusiva visitando las 4 islas más hermosas del Caribe colombiano. Disfruta de aguas cristalinas, playas paradisíacas y un día inolvidable en el archipiélago de Cartagena.
+                                    </p>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <a href="#" class="bg-caribbean-red hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300">
+                                        Pagar reserva
+                                    </a>
+                                    <a href="https://wa.me/573019841613" class="bg-green-500 hover:bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <i class="fab fa-whatsapp text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tour Card 2 - Volcán del Totumo -->
+                    <div class="tour-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                        <div class="swiper h-56">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/Volcan del totumo/1.webp" alt="Volcán del Totumo" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Volcan del totumo/2.webp" alt="Volcán del Totumo" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Volcan del totumo/3.webp" alt="Volcán del Totumo" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Volcan del totumo/4.webp" alt="Volcán del Totumo" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Volcán del Totumo</h3>
+                            <p class="text-2xl font-bold text-purple-700 mb-4">$150.000</p>
+                            <div class="tour-description">
+                                <div class="description-content">
+                                    <p class="text-white">
+                                        Experimenta la sensación única de flotar en las aguas termales del Volcán del Totumo, un fenómeno natural extraordinario que te permite relajarte en barro volcánico medicinal.
+                                    </p>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <a href="#" class="bg-caribbean-red hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300">
+                                        Pagar reserva
+                                    </a>
+                                    <a href="https://wa.me/573019841613" class="bg-green-500 hover:bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <i class="fab fa-whatsapp text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tour Card 3 - Playa Blanca -->
+                    <div class="tour-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                        <div class="swiper h-56">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/Playa blanca baru/1.webp" alt="Playa Blanca" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Playa blanca baru/2.webp" alt="Playa Blanca" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Playa blanca baru/3.webp" alt="Playa Blanca" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Playa blanca baru/4.webp" alt="Playa Blanca" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Playa Blanca</h3>
+                            <p class="text-2xl font-bold text-purple-700 mb-4">$80.000</p>
+                            <div class="tour-description">
+                                <div class="description-content">
+                                    <p class="text-white">
+                                        Relájate en las paradisíacas arenas blancas de Playa Blanca, el destino perfecto para desconectar y disfrutar del Caribe colombiano en toda su esplendor.
+                                    </p>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <a href="#" class="bg-caribbean-red hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300">
+                                        Pagar reserva
+                                    </a>
+                                    <a href="https://wa.me/573019841613" class="bg-green-500 hover:bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <i class="fab fa-whatsapp text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tour Card 4 - Tour por la Bahía -->
+                    <div class="tour-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                        <div class="swiper h-56">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/Bahia/1.webp" alt="Tour por la Bahía" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Bahia/2.webp" alt="Tour por la Bahía" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Bahia/3.webp" alt="Tour por la Bahía" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Tour por la Bahía</h3>
+                            <p class="text-2xl font-bold text-purple-700 mb-4">$80.000</p>
+                            <div class="tour-description">
+                                <div class="description-content">
+                                    <p class="text-white">
+                                        Navega por la hermosa bahía de Cartagena y descubre la ciudad desde una perspectiva única mientras disfrutas de las mejores vistas del atardecer caribeño.
+                                    </p>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <a href="#" class="bg-caribbean-red hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300">
+                                        Pagar reserva
+                                    </a>
+                                    <a href="https://wa.me/573019841613" class="bg-green-500 hover:bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <i class="fab fa-whatsapp text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tour Card 5 - City Tour -->
+                    <div class="tour-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                        <div class="swiper h-56">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/City tour/1.webp" alt="City Tour" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/City tour/2.webp" alt="City Tour" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/City tour/3.webp" alt="City Tour" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/City tour/4.webp" alt="City Tour" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">City Tour</h3>
+                            <p class="text-2xl font-bold text-purple-700 mb-4">$80.000</p>
+                            <div class="tour-description">
+                                <div class="description-content">
+                                    <p class="text-white">
+                                        Recorre la ciudad de Cartagena y descubre sus principales atractivos, historia y cultura en un completo tour por los lugares más emblemáticos.
+                                    </p>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <a href="#" class="bg-caribbean-red hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300">
+                                        Pagar reserva
+                                    </a>
+                                    <a href="https://wa.me/573019841613" class="bg-green-500 hover:bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <i class="fab fa-whatsapp text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tour Card 6 - Cholón -->
+                    <div class="tour-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                        <div class="swiper h-56">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/Cholon/1.webp" alt="Cholón" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Cholon/2.webp" alt="Cholón" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Cholon/3.webp" alt="Cholón" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Cholon/4.webp" alt="Cholón" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Cholón</h3>
+                            <p class="text-2xl font-bold text-purple-700 mb-4">$350.000</p>
+                            <div class="tour-description">
+                                <div class="description-content">
+                                    <p class="text-white">
+                                        Disfruta de la fiesta más exclusiva del Caribe en Cholón, el lugar perfecto para vivir una experiencia única con música, diversión y aguas cristalinas.
+                                    </p>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <a href="#" class="bg-caribbean-red hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300">
+                                        Pagar reserva
+                                    </a>
+                                    <a href="https://wa.me/573019841613" class="bg-green-500 hover:bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <i class="fab fa-whatsapp text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tour Card 7 - Isla Privada Nena Beach -->
+                    <div class="tour-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                        <div class="swiper h-56">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/isla privada Nena/1.webp" alt="Isla Privada Nena Beach" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/isla privada Nena/2.webp" alt="Isla Privada Nena Beach" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/isla privada Nena/3.webp" alt="Isla Privada Nena Beach" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/isla privada Nena/4.webp" alt="Isla Privada Nena Beach" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Isla Privada Nena Beach</h3>
+                            <p class="text-2xl font-bold text-purple-700 mb-4">$320.000</p>
+                            <div class="tour-description">
+                                <div class="description-content">
+                                    <p class="text-white">
+                                        Escápate a la exclusiva Isla Privada Nena Beach y disfruta de un paraíso tropical con servicio premium, aguas cristalinas y total privacidad en el Caribe.
+                                    </p>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <a href="#" class="bg-caribbean-red hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300">
+                                        Pagar reserva
+                                    </a>
+                                    <a href="https://wa.me/573019841613" class="bg-green-500 hover:bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <i class="fab fa-whatsapp text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tour Card 8 - Isla Punta Arena Tierra Bomba -->
+                    <div class="tour-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                        <div class="swiper h-56">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/Punta arena tierra bomba/1.webp" alt="Isla Punta Arena Tierra Bomba" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Punta arena tierra bomba/2.webp" alt="Isla Punta Arena Tierra Bomba" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Punta arena tierra bomba/3.webp" alt="Isla Punta Arena Tierra Bomba" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Punta arena tierra bomba/4.webp" alt="Isla Punta Arena Tierra Bomba" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Isla Punta Arena Tierra Bomba</h3>
+                            <p class="text-2xl font-bold text-purple-700 mb-4">$80.000</p>
+                            <div class="tour-description">
+                                <div class="description-content">
+                                    <p class="text-white">
+                                        Descubre la belleza natural de Isla Punta Arena en Tierra Bomba, un destino tranquilo perfecto para relajarte y disfrutar del auténtico ambiente caribeño.
+                                    </p>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <a href="#" class="bg-caribbean-red hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300">
+                                        Pagar reserva
+                                    </a>
+                                    <a href="https://wa.me/573019841613" class="bg-green-500 hover:bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <i class="fab fa-whatsapp text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tour Card 9 - Barranquilla - Santa Marta -->
+                    <div class="tour-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                        <div class="swiper h-56">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/Baranquilla santa marta/1.webp" alt="Barranquilla - Santa Marta" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Baranquilla santa marta/2.webp" alt="Barranquilla - Santa Marta" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Baranquilla santa marta/3.webp" alt="Barranquilla - Santa Marta" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Baranquilla santa marta/4.webp" alt="Barranquilla - Santa Marta" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Baranquilla santa marta/5.webp" alt="Barranquilla - Santa Marta" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Barranquilla - Santa Marta</h3>
+                            <p class="text-2xl font-bold text-purple-700 mb-4">$250.000</p>
+                            <div class="tour-description">
+                                <div class="description-content">
+                                    <p class="text-white">
+                                        Explora la costa caribeña colombiana visitando las vibrantes ciudades de Barranquilla y Santa Marta, descubriendo su rica historia, cultura y hermosas playas.
+                                    </p>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <a href="#" class="bg-caribbean-red hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300">
+                                        Pagar reserva
+                                    </a>
+                                    <a href="https://wa.me/573019841613" class="bg-green-500 hover:bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <i class="fab fa-whatsapp text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tours adicionales (visibles solo con "Ver más tours") -->
+                    <template x-if="showMoreTours">
+                        <div class="contents">
+                    <!-- Tour Card 10 - Playa Blanca + Islas del Rosario -->
+                    <div class="tour-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                        <div class="swiper h-56">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/Playa blanca baru/1.webp" alt="Playa Blanca + Islas del Rosario" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Islas del rosario/1.webp" alt="Playa Blanca + Islas del Rosario" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Playa blanca baru/2.webp" alt="Playa Blanca + Islas del Rosario" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Islas del rosario/2.webp" alt="Playa Blanca + Islas del Rosario" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Playa blanca baru/3.webp" alt="Playa Blanca + Islas del Rosario" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Islas del rosario/3.webp" alt="Playa Blanca + Islas del Rosario" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Playa blanca baru/4.webp" alt="Playa Blanca + Islas del Rosario" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Islas del rosario/4.webp" alt="Playa Blanca + Islas del Rosario" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Playa Blanca + Islas del Rosario</h3>
+                            <p class="text-2xl font-bold text-purple-700 mb-4">$140.000</p>
+                            <div class="tour-description">
+                                <div class="description-content">
+                                    <p class="text-white">
+                                        Combina lo mejor de dos destinos paradisíacos: las arenas blancas de Playa Blanca y la belleza natural de las Islas del Rosario en una experiencia inolvidable.
+                                    </p>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <a href="#" class="bg-caribbean-red hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300">
+                                        Pagar reserva
+                                    </a>
+                                    <a href="https://wa.me/573019841613" class="bg-green-500 hover:bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <i class="fab fa-whatsapp text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tour Card 11 - Playa Tranquila -->
+                    <div class="tour-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                        <div class="swiper h-56">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/Playa tanquila/1.webp" alt="Playa Tranquila" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Playa tanquila/2.webp" alt="Playa Tranquila" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Playa tanquila/3.webp" alt="Playa Tranquila" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Playa tanquila/4.webp" alt="Playa Tranquila" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Playa Tranquila</h3>
+                            <p class="text-2xl font-bold text-purple-700 mb-4">$120.000</p>
+                            <div class="tour-description">
+                                <div class="description-content">
+                                    <p class="text-white">
+                                        Escápate a Playa Tranquila y disfruta de un ambiente sereno y relajante, perfecto para desconectar del estrés y vivir momentos de paz en un entorno paradisíaco.
+                                    </p>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <a href="#" class="bg-caribbean-red hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300">
+                                        Pagar reserva
+                                    </a>
+                                    <a href="https://wa.me/573019841613" class="bg-green-500 hover:bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <i class="fab fa-whatsapp text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tour Card 12 - Isla Paue -->
+                    <div class="tour-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                        <div class="swiper h-56">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/Paue/1.webp" alt="Isla Paue" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Paue/2.webp" alt="Isla Paue" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Paue/3.webp" alt="Isla Paue" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Paue/4.webp" alt="Isla Paue" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Isla Paue</h3>
+                            <p class="text-2xl font-bold text-purple-700 mb-4">$390.000</p>
+                            <div class="tour-description">
+                                <div class="description-content">
+                                    <p class="text-white">
+                                        Descubre la exclusiva Isla Paue, un destino premium que ofrece la máxima experiencia caribeña con servicios de lujo, aguas cristalinas y una atmósfera única.
+                                    </p>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <a href="#" class="bg-caribbean-red hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300">
+                                        Pagar reserva
+                                    </a>
+                                    <a href="https://wa.me/573019841613" class="bg-green-500 hover:bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <i class="fab fa-whatsapp text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tour Card 13 - Isla del Pirata -->
+                    <div class="tour-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                        <div class="swiper h-56">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/isla del pirata/1.webp" alt="Isla del Pirata" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/isla del pirata/2.webp" alt="Isla del Pirata" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/isla del pirata/3.webp" alt="Isla del Pirata" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/isla del pirata/4.webp" alt="Isla del Pirata" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/isla del pirata/5.webp" alt="Isla del Pirata" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Isla del Pirata</h3>
+                            <p class="text-2xl font-bold text-purple-700 mb-4">$350.000</p>
+                            <div class="tour-description">
+                                <div class="description-content">
+                                    <p class="text-white">
+                                        Vive una aventura única en la mítica Isla del Pirata, donde las leyendas cobran vida en un paraíso caribeño lleno de historia, misterio y paisajes espectaculares.
+                                    </p>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <a href="#" class="bg-caribbean-red hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300">
+                                        Pagar reserva
+                                    </a>
+                                    <a href="https://wa.me/573019841613" class="bg-green-500 hover:bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <i class="fab fa-whatsapp text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tour Card 14 - Isla de Pao Pao -->
+                    <div class="tour-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                        <div class="swiper h-56">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/Pao Pao/1.webp" alt="Isla de Pao Pao" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Pao Pao/2.webp" alt="Isla de Pao Pao" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Pao Pao/3.webp" alt="Isla de Pao Pao" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Pao Pao/4.webp" alt="Isla de Pao Pao" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Pao Pao/5.webp" alt="Isla de Pao Pao" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Isla de Pao Pao</h3>
+                            <p class="text-2xl font-bold text-purple-700 mb-4">$370.000</p>
+                            <div class="tour-description">
+                                <div class="description-content">
+                                    <p class="text-white">
+                                        Vive una experiencia extraordinaria en la exótica Isla de Pao Pao, un destino exclusivo que combina aventura, naturaleza virgen y el auténtico espíritu caribeño en un paraíso único.
+                                    </p>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <a href="#" class="bg-caribbean-red hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300">
+                                        Pagar reserva
+                                    </a>
+                                    <a href="https://wa.me/573019841613" class="bg-green-500 hover:bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <i class="fab fa-whatsapp text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tour Card 15 - Isla Palma -->
+                    <div class="tour-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                        <div class="swiper h-56">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/isla palma/1.webp" alt="Isla Palma" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/isla palma/2.webp" alt="Isla Palma" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/isla palma/3.webp" alt="Isla Palma" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/isla palma/4.webp" alt="Isla Palma" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/isla palma/5.webp" alt="Isla Palma" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Isla Palma</h3>
+                            <p class="text-2xl font-bold text-purple-700 mb-4">$430.000</p>
+                            <div class="tour-description">
+                                <div class="description-content">
+                                    <p class="text-white">
+                                        Descubre la majestuosa Isla Palma, el destino más exclusivo del Caribe colombiano que ofrece una experiencia de lujo supremo con servicios personalizados y paisajes incomparables.
+                                    </p>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <a href="#" class="bg-caribbean-red hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300">
+                                        Pagar reserva
+                                    </a>
+                                    <a href="https://wa.me/573019841613" class="bg-green-500 hover:bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <i class="fab fa-whatsapp text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tour Card 16 - Isla Cocotera -->
+                    <div class="tour-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                        <div class="swiper h-56">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/Isla cocotera/1.webp" alt="Isla Cocotera" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Isla cocotera/2.webp" alt="Isla Cocotera" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Isla cocotera/3.webp" alt="Isla Cocotera" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Isla cocotera/4.webp" alt="Isla Cocotera" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Isla Cocotera</h3>
+                            <p class="text-2xl font-bold text-purple-700 mb-4">$300.000</p>
+                            <div class="tour-description">
+                                <div class="description-content">
+                                    <p class="text-white">
+                                        Sumérgete en la belleza tropical de Isla Cocotera, un paraíso natural rodeado de cocoteros donde podrás disfrutar de aguas turquesas y la auténtica tranquilidad caribeña.
+                                    </p>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <!-- CAMBIAR LINK DE PAGO AQUÍ - Tour Card 16 - Isla Cocotera -->
+                                    <a href="#" class="bg-caribbean-red hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300">
+                                        Pagar reserva
+                                    </a>
+                                    <a href="https://wa.me/573019841613" class="bg-green-500 hover:bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <i class="fab fa-whatsapp text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tour Card 17 - Tour por el Parque Tayrona -->
+                    <div class="tour-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                        <div class="swiper h-56">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/Tayrona/1.webp" alt="Tour por el Parque Tayrona" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Tayrona/2.webp" alt="Tour por el Parque Tayrona" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Tayrona/3.webp" alt="Tour por el Parque Tayrona" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Tour por el Parque Tayrona</h3>
+                            <p class="text-2xl font-bold text-purple-700 mb-4">$390.000</p>
+                            <div class="tour-description">
+                                <div class="description-content">
+                                    <p class="text-white">
+                                        Explora la majestuosidad del Parque Nacional Natural Tayrona, donde la selva tropical se encuentra con playas vírgenes en una experiencia única de biodiversidad y naturaleza salvaje.
+                                    </p>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <a href="#" class="bg-caribbean-red hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300">
+                                        Pagar reserva
+                                    </a>
+                                    <a href="https://wa.me/573019841613" class="bg-green-500 hover:bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <i class="fab fa-whatsapp text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tour Card 18 - Isla del Sol -->
+                    <div class="tour-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                        <div class="swiper h-56">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/isla del sol/1.webp" alt="Isla del Sol" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/isla del sol/2.webp" alt="Isla del Sol" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/isla del sol/3.webp" alt="Isla del Sol" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/isla del sol/4.webp" alt="Isla del Sol" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/isla del sol/5.webp" alt="Isla del Sol" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/isla del sol/6.webp" alt="Isla del Sol" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Isla del Sol</h3>
+                            <p class="text-2xl font-bold text-purple-700 mb-4">$340.000</p>
+                            <div class="tour-description">
+                                <div class="description-content">
+                                    <p class="text-white">
+                                        Vive la magia de la Isla del Sol, donde cada amanecer y atardecer se convierte en un espectáculo único mientras disfrutas de aguas doradas y paisajes que cautivan el alma.
+                                    </p>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <a href="#" class="bg-caribbean-red hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300">
+                                        Pagar reserva
+                                    </a>
+                                    <a href="https://wa.me/573019841613" class="bg-green-500 hover:bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <i class="fab fa-whatsapp text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tour Card 19 - Isla del Encanto -->
+                    <div class="tour-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                        <div class="swiper h-56">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/isla del encanto/1.webp" alt="Isla del Encanto" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/isla del encanto/2.webp" alt="Isla del Encanto" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/isla del encanto/3.webp" alt="Isla del Encanto" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/isla del encanto/4.webp" alt="Isla del Encanto" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/isla del encanto/5.webp" alt="Isla del Encanto" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Isla del Encanto</h3>
+                            <p class="text-2xl font-bold text-purple-700 mb-4">$360.000</p>
+                            <div class="tour-description">
+                                <div class="description-content">
+                                    <p class="text-white">
+                                        Déjate seducir por la Isla del Encanto, un destino mágico donde cada rincón guarda secretos fascinantes y la belleza natural te envuelve en una experiencia encantadora.
+                                    </p>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <a href="#" class="bg-caribbean-red hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300">
+                                        Pagar reserva
+                                    </a>
+                                    <a href="https://wa.me/573019841613" class="bg-green-500 hover:bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <i class="fab fa-whatsapp text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tour Card 20 - Isla de Mucura -->
+                    <div class="tour-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                        <div class="swiper h-56">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/isla mucura/1.webp" alt="Isla de Mucura" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/isla mucura/2.webp" alt="Isla de Mucura" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/isla mucura/3.webp" alt="Isla de Mucura" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/isla mucura/4.webp" alt="Isla de Mucura" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Isla de Mucura</h3>
+                            <p class="text-2xl font-bold text-purple-700 mb-4">$270.000</p>
+                            <div class="tour-description">
+                                <div class="description-content">
+                                    <p class="text-white">
+                                        Explora la hermosa Isla de Mucura en el archipiélago de San Bernardo, un destino paradisíaco con aguas cristalinas, arenas blancas y una atmósfera de total relajación.
+                                    </p>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <a href="#" class="bg-caribbean-red hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300">
+                                        Pagar reserva
+                                    </a>
+                                    <a href="https://wa.me/573019841613" class="bg-green-500 hover:bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <i class="fab fa-whatsapp text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tour Card 21 - Isla de Cocoliso -->
+                    <div class="tour-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                        <div class="swiper h-56">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/isla cocoliso/1.webp" alt="Isla de Cocoliso" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/isla cocoliso/2.webp" alt="Isla de Cocoliso" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/isla cocoliso/3.webp" alt="Isla de Cocoliso" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/isla cocoliso/4.webp" alt="Isla de Cocoliso" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Isla de Cocoliso</h3>
+                            <p class="text-2xl font-bold text-purple-700 mb-4">$380.000</p>
+                            <div class="tour-description">
+                                <div class="description-content">
+                                    <p class="text-white">
+                                        Descubre la fascinante Isla de Cocoliso, un refugio natural exclusivo donde la exuberante vegetación tropical se encuentra con aguas turquesas en una experiencia de lujo caribeño.
+                                    </p>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <a href="#" class="bg-caribbean-red hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300">
+                                        Pagar reserva
+                                    </a>
+                                    <a href="https://wa.me/573019841613" class="bg-green-500 hover:bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <i class="fab fa-whatsapp text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tour Card 22 - Isla Lizamar -->
+                    <div class="tour-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                        <div class="swiper h-56">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/isla lizamar/1.webp" alt="Isla Lizamar" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/isla lizamar/2.webp" alt="Isla Lizamar" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/isla lizamar/3.webp" alt="Isla Lizamar" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/isla lizamar/4.webp" alt="Isla Lizamar" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/isla lizamar/5.webp" alt="Isla Lizamar" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/isla lizamar/6.webp" alt="Isla Lizamar" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Isla Lizamar</h3>
+                            <p class="text-2xl font-bold text-purple-700 mb-4">$320.000</p>
+                            <div class="tour-description">
+                                <div class="description-content">
+                                    <p class="text-white">
+                                        Vive una experiencia única en Isla Lizamar, un destino costero encantador que combina historia, naturaleza y modernidad en un ambiente exclusivo frente al mar Caribe.
+                                    </p>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <a href="#" class="bg-caribbean-red hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300">
+                                        Pagar reserva
+                                    </a>
+                                    <a href="https://wa.me/573019841613" class="bg-green-500 hover:bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <i class="fab fa-whatsapp text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tour Card 23 - Luxuri -->
+                    <div class="tour-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                        <div class="swiper h-56">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/luxuri/1.webp" alt="Luxuri" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/luxuri/2.webp" alt="Luxuri" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/luxuri/3.webp" alt="Luxuri" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/luxuri/4.webp" alt="Luxuri" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Luxuri</h3>
+                            <p class="text-2xl font-bold text-purple-700 mb-4">$320.000</p>
+                            <div class="tour-description">
+                                <div class="description-content">
+                                    <p class="text-white">
+                                        Sumérgete en la experiencia Luxuri, donde el lujo caribeño alcanza su máxima expresión con servicios exclusivos, ambientes sofisticados y momentos inolvidables frente al mar.
+                                    </p>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <a href="#" class="bg-caribbean-red hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300">
+                                        Pagar reserva
+                                    </a>
+                                    <a href="https://wa.me/573019841613" class="bg-green-500 hover:bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <i class="fab fa-whatsapp text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tour Card 24 - Bora Bora -->
+                    <div class="tour-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                        <div class="swiper h-56">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/bora bora/1.webp" alt="Bora Bora" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/bora bora/2.webp" alt="Bora Bora" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/bora bora/3.webp" alt="Bora Bora" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/bora bora/4.webp" alt="Bora Bora" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/bora bora/5.webp" alt="Bora Bora" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Bora Bora</h3>
+                            <p class="text-2xl font-bold text-purple-700 mb-4">$370.000</p>
+                            <div class="tour-description">
+                                <div class="description-content">
+                                    <p class="text-white">
+                                        Experimenta la magia de Bora Bora, un destino de ensueño que evoca la esencia del paraíso tropical con aguas turquesas cristalinas y un ambiente de lujo exclusivo en el Caribe.
+                                    </p>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <a href="#" class="bg-caribbean-red hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300">
+                                        Pagar reserva
+                                    </a>
+                                    <a href="https://wa.me/573019841613" class="bg-green-500 hover:bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <i class="fab fa-whatsapp text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tour Card 25 - Isla Encantada -->
+                    <div class="tour-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                        <div class="swiper h-56">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/isla encantada/1.webp" alt="Isla Encantada" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/isla encantada/2.webp" alt="Isla Encantada" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/isla encantada/3.webp" alt="Isla Encantada" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/isla encantada/4.webp" alt="Isla Encantada" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Isla Encantada</h3>
+                            <p class="text-2xl font-bold text-purple-700 mb-4">$280.000</p>
+                            <div class="tour-description">
+                                <div class="description-content">
+                                    <p class="text-white">
+                                        Descubre los misterios de la Isla Encantada, un refugio mágico donde la naturaleza caribeña se revela en todo su esplendor y cada momento se convierte en una experiencia fascinante.
+                                    </p>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <a href="#" class="bg-caribbean-red hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300">
+                                        Pagar reserva
+                                    </a>
+                                    <a href="https://wa.me/573019841613" class="bg-green-500 hover:bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <i class="fab fa-whatsapp text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tour Card 26 - Chiva Rumbera por la Ciudad de Cartagena -->
+                    <div class="tour-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                        <div class="swiper h-56">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/chiva rumbera/1.webp" alt="Chiva Rumbera por la Ciudad de Cartagena" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/chiva rumbera/2.webp" alt="Chiva Rumbera por la Ciudad de Cartagena" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/chiva rumbera/3.webp" alt="Chiva Rumbera por la Ciudad de Cartagena" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/chiva rumbera/4.webp" alt="Chiva Rumbera por la Ciudad de Cartagena" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Chiva Rumbera</h3>
+                            <p class="text-2xl font-bold text-purple-700 mb-4">$50.000</p>
+                            <div class="tour-description">
+                                <div class="description-content">
+                                    <p class="text-white">
+                                        Vive la auténtica fiesta cartagenera a bordo de una tradicional Chiva Rumbera, recorriendo la ciudad con música, baile, alegría y el verdadero sabor del Caribe colombiano.
+                                    </p>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <a href="#" class="bg-caribbean-red hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300">
+                                        Pagar reserva
+                                    </a>
+                                    <a href="https://wa.me/573019841613" class="bg-green-500 hover:bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <i class="fab fa-whatsapp text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        </div>
+                    </template>
+                    
+                </div>
+                
+                <div class="text-center mt-12">
+                    <button 
+                        @click="showMoreTours = !showMoreTours" 
+                        class="bg-purple-700 hover:bg-purple-800 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105"
+                    >
+                        <span x-text="showMoreTours ? 'Ver menos tours' : 'Ver más tours'"></span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 px-4 md:px-8 bg-gradient-to-br from-slate-100 via-blue-50 to-indigo-100">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">Contáctanos</h2>
+                
+                <div class="bg-white bg-opacity-80 backdrop-blur-sm rounded-2xl p-8 shadow-xl max-w-4xl mx-auto border border-white border-opacity-30">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-8 text-center">¿Listo para vivir la experiencia caribeña?</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="flex items-center bg-gradient-to-r from-green-50 to-green-100 p-4 rounded-xl hover:shadow-md transition-all duration-300">
+                            <div class="bg-green-500 text-white p-3 rounded-full mr-4 shadow-lg">
+                                <i class="fab fa-whatsapp text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">WhatsApp</h4>
+                                <a href="https://wa.me/573019841613" class="text-green-600 hover:text-green-700 font-medium transition-colors">+57 301 984 1613</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center bg-gradient-to-r from-blue-50 to-blue-100 p-3 sm:p-4 rounded-xl hover:shadow-md transition-all duration-300">
+                            <div class="bg-blue-500 text-white p-2 sm:p-3 rounded-full mr-3 sm:mr-4 shadow-lg flex-shrink-0">
+                                <i class="fas fa-envelope text-lg sm:text-xl"></i>
+                            </div>
+                            <div class="min-w-0 flex-1">
+                                <h4 class="font-bold text-gray-800 mb-1 text-sm sm:text-base">Email</h4>
+                                <a href="mailto:afrotripcartagena@gmail.com" class="text-blue-600 hover:text-blue-700 font-medium transition-colors text-xs sm:text-base break-all">afrotripcartagena@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center bg-gradient-to-r from-purple-50 to-purple-100 p-4 rounded-xl hover:shadow-md transition-all duration-300">
+                            <div class="bg-purple-500 text-white p-3 rounded-full mr-4 shadow-lg">
+                                <i class="fas fa-map-marker-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Ubicación</h4>
+                                <p class="text-purple-600 font-medium">Cartagena de Indias, Colombia</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center bg-gradient-to-r from-indigo-50 to-indigo-100 p-4 rounded-xl hover:shadow-md transition-all duration-300">
+                            <div class="bg-indigo-500 text-white p-3 rounded-full mr-4 shadow-lg">
+                                <i class="fas fa-clock text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Horario</h4>
+                                <p class="text-indigo-600 font-medium">Lunes a Domingo: 8:00 AM - 8:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Botones de redes sociales -->
+                    <div class="flex justify-center space-x-6 mt-10 pt-6 border-t border-gray-200">
+                        <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="https://wa.me/573019841613" class="bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 px-4 md:px-8 mb-20 sm:mb-0">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-2">Afrotripcartagena</h3>
+                    <p class="text-gray-400">Vive la experiencia caribeña</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-all duration-300">
+                        <i class="fab fa-facebook-f text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-all duration-300">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-all duration-300">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Afrotripcartagena. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
