@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     clickable: true,
                 },
                 effect: 'slide',
-                direction: 'vertical',
+                direction: 'horizontal',
                 speed: 800,
                 spaceBetween: 0,
                 slidesPerView: 1,
