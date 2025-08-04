@@ -5,12 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Afrotripcartagena - Tours en Cartagena de Indias</title>
     <link rel="icon" type="image/webp" href="img/icon/icon.webp">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="img/Tour 4 islas vip/1.webp" as="image">
+    <link rel="preload" href="img/Volcan del totumo/1.webp" as="image">
+    <link rel="preload" href="img/Playa blanca baru/1.webp" as="image">
+    
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="//cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.0/dist/cdn.min.js" defer></script>
     <script>
         tailwind.config = {
             theme: {
@@ -44,9 +55,37 @@
         .swiper-vertical > .swiper-wrapper {
             flex-direction: column;
         }
+
+        /* Optimización de carga de imágenes */
+        img[data-src] {
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        img[data-src].loaded {
+            opacity: 1;
+        }
+
+        /* Placeholder para imágenes cargando */
+        .image-placeholder {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
     </style>
 </head>
-<body class="bg-gray-50" x-data="{ mobileMenuOpen: false, showMoreTours: false }">
+<body class="bg-gray-50" x-data="{ 
+    mobileMenuOpen: false, 
+    showMoreTours: false,
+    lazyLoadImages() {
+        // Lazy loading implementation will be handled by script.js
+    }
+}">
     <!-- Desktop Sidebar Navigation -->
     <div class="hidden md:flex fixed left-0 top-0 h-full w-20 bg-gradient-to-b from-blue-100 to-slate-100 shadow-lg z-50 flex-col items-center py-10 border-r border-blue-200">
         <div class="mb-10">
@@ -120,19 +159,25 @@
                     <!-- Primeros 9 tours (visibles por defecto) -->
                     <!-- Tour Card 1 - 4 Islas VIP -->
                     <div class="tour-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
-                        <div class="swiper h-56 relative">
+                        <div class="swiper h-56 relative" data-swiper-tour="tour-1">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
-                                    <img src="img/Tour 4 islas vip/1.webp" alt="4 Islas VIP" class="w-full h-full object-cover">
+                                    <img src="img/Tour 4 islas vip/1.webp" alt="4 Islas VIP" class="w-full h-full object-cover" loading="eager">
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="img/Tour 4 islas vip/2.webp" alt="4 Islas VIP" class="w-full h-full object-cover">
+                                    <div class="image-placeholder w-full h-full">
+                                        <img data-src="img/Tour 4 islas vip/2.webp" alt="4 Islas VIP" class="w-full h-full object-cover" loading="lazy">
+                                    </div>
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="img/Tour 4 islas vip/3.webp" alt="4 Islas VIP" class="w-full h-full object-cover">
+                                    <div class="image-placeholder w-full h-full">
+                                        <img data-src="img/Tour 4 islas vip/3.webp" alt="4 Islas VIP" class="w-full h-full object-cover" loading="lazy">
+                                    </div>
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="img/Tour 4 islas vip/4.webp" alt="4 Islas VIP" class="w-full h-full object-cover">
+                                    <div class="image-placeholder w-full h-full">
+                                        <img data-src="img/Tour 4 islas vip/4.webp" alt="4 Islas VIP" class="w-full h-full object-cover" loading="lazy">
+                                    </div>
                                 </div>
                 
                             </div>
@@ -161,19 +206,25 @@
                     
                     <!-- Tour Card 2 - Volcán del Totumo -->
                     <div class="tour-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
-                        <div class="swiper h-56">
+                        <div class="swiper h-56" data-swiper-tour="tour-2">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
-                                    <img src="img/Volcan del totumo/1.webp" alt="Volcán del Totumo" class="w-full h-full object-cover">
+                                    <img src="img/Volcan del totumo/1.webp" alt="Volcán del Totumo" class="w-full h-full object-cover" loading="eager">
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="img/Volcan del totumo/2.webp" alt="Volcán del Totumo" class="w-full h-full object-cover">
+                                    <div class="image-placeholder w-full h-full">
+                                        <img data-src="img/Volcan del totumo/2.webp" alt="Volcán del Totumo" class="w-full h-full object-cover" loading="lazy">
+                                    </div>
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="img/Volcan del totumo/3.webp" alt="Volcán del Totumo" class="w-full h-full object-cover">
+                                    <div class="image-placeholder w-full h-full">
+                                        <img data-src="img/Volcan del totumo/3.webp" alt="Volcán del Totumo" class="w-full h-full object-cover" loading="lazy">
+                                    </div>
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="img/Volcan del totumo/4.webp" alt="Volcán del Totumo" class="w-full h-full object-cover">
+                                    <div class="image-placeholder w-full h-full">
+                                        <img data-src="img/Volcan del totumo/4.webp" alt="Volcán del Totumo" class="w-full h-full object-cover" loading="lazy">
+                                    </div>
                                 </div>
                             </div>
                             <div class="swiper-pagination"></div>
@@ -256,8 +307,8 @@
                             <div class="swiper-pagination"></div>
                         </div>
                         <div class="p-4">
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">Tour por la Bahía</h3>
-                            <p class="text-2xl font-bold text-purple-700 mb-4">$80.000</p>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Tour noche blanca</h3>
+                            <p class="text-2xl font-bold text-purple-700 mb-4">$135.000</p>
                             <div class="tour-description">
                                 <div class="description-content">
                                     <p class="text-white">
@@ -396,32 +447,32 @@
                         </div>
                     </div>
                     
-                    <!-- Tour Card 8 - Isla Punta Arena Tierra Bomba -->
+                    <!-- Tour Card 8 - Top 3 Islas VIP -->
                     <div class="tour-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
                         <div class="swiper h-56">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
-                                    <img src="img/Punta arena tierra bomba/1.webp" alt="Isla Punta Arena Tierra Bomba" class="w-full h-full object-cover">
+                                    <img src="img/Top 3 islas vip/1.webp" alt="Top 3 Islas VIP" class="w-full h-full object-cover">
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="img/Punta arena tierra bomba/2.webp" alt="Isla Punta Arena Tierra Bomba" class="w-full h-full object-cover">
+                                    <img src="img/Top 3 islas vip/2.webp" alt="Top 3 Islas VIP" class="w-full h-full object-cover">
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="img/Punta arena tierra bomba/3.webp" alt="Isla Punta Arena Tierra Bomba" class="w-full h-full object-cover">
+                                    <img src="img/Top 3 islas vip/3.webp" alt="Top 3 Islas VIP" class="w-full h-full object-cover">
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="img/Punta arena tierra bomba/4.webp" alt="Isla Punta Arena Tierra Bomba" class="w-full h-full object-cover">
+                                    <img src="img/Top 3 islas vip/4.webp" alt="Top 3 Islas VIP" class="w-full h-full object-cover">
                                 </div>
                             </div>
                             <div class="swiper-pagination"></div>
                         </div>
                         <div class="p-4">
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">Isla Punta Arena Tierra Bomba</h3>
-                            <p class="text-2xl font-bold text-purple-700 mb-4">$80.000</p>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Top 3 Islas VIP</h3>
+                            <p class="text-2xl font-bold text-purple-700 mb-4">$470.000</p>
                             <div class="tour-description">
                                 <div class="description-content">
                                     <p class="text-white">
-                                        Descubre la belleza natural de Isla Punta Arena en Tierra Bomba, un destino tranquilo perfecto para relajarte y disfrutar del auténtico ambiente caribeño.
+                                        Disfruta de una experiencia ultra-exclusiva visitando las 3 islas más espectaculares y selectas del Caribe colombiano. Un tour VIP que combina lujo, privacidad y paisajes incomparables para los viajeros más exigentes que buscan lo mejor del paraíso caribeño.
                                     </p>
                                 </div>
                                 <div class="flex justify-between items-center">
@@ -436,35 +487,38 @@
                         </div>
                     </div>
                     
-                    <!-- Tour Card 9 - Barranquilla - Santa Marta -->
+                    <!-- Tour Card 9 - Alquiler de Yates -->
                     <div class="tour-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
                         <div class="swiper h-56">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
-                                    <img src="img/Baranquilla santa marta/1.webp" alt="Barranquilla - Santa Marta" class="w-full h-full object-cover">
+                                    <img src="img/yates/1.webp" alt="Alquiler de Yates" class="w-full h-full object-cover">
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="img/Baranquilla santa marta/2.webp" alt="Barranquilla - Santa Marta" class="w-full h-full object-cover">
+                                    <img src="img/yates/2.webp" alt="Alquiler de Yates" class="w-full h-full object-cover">
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="img/Baranquilla santa marta/3.webp" alt="Barranquilla - Santa Marta" class="w-full h-full object-cover">
+                                    <img src="img/yates/3.webp" alt="Alquiler de Yates" class="w-full h-full object-cover">
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="img/Baranquilla santa marta/4.webp" alt="Barranquilla - Santa Marta" class="w-full h-full object-cover">
+                                    <img src="img/yates/4.webp" alt="Alquiler de Yates" class="w-full h-full object-cover">
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="img/Baranquilla santa marta/5.webp" alt="Barranquilla - Santa Marta" class="w-full h-full object-cover">
+                                    <img src="img/yates/5.webp" alt="Alquiler de Yates" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/yates/6.webp" alt="Alquiler de Yates" class="w-full h-full object-cover">
                                 </div>
                             </div>
                             <div class="swiper-pagination"></div>
                         </div>
                         <div class="p-4">
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">Barranquilla - Santa Marta</h3>
-                            <p class="text-2xl font-bold text-purple-700 mb-4">$250.000</p>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Alquiler de Yates</h3>
+                            <p class="text-2xl font-bold text-purple-700 mb-4">$12.500.000</p>
                             <div class="tour-description">
                                 <div class="description-content">
                                     <p class="text-white">
-                                        Explora la costa caribeña colombiana visitando las vibrantes ciudades de Barranquilla y Santa Marta, descubriendo su rica historia, cultura y hermosas playas.
+                                        Vive el máximo lujo navegando en yates privados de primera clase. Una experiencia exclusiva e inolvidable en las aguas cristalinas del Caribe, perfecta para celebraciones especiales y momentos únicos con el más alto nivel de confort y servicio personalizado.
                                     </p>
                                 </div>
                                 <div class="flex justify-between items-center">
@@ -1370,6 +1424,89 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- Tour Card 31 - Barranquilla - Santa Marta -->
+                    <div class="tour-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                        <div class="swiper h-56">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/Baranquilla santa marta/1.webp" alt="Barranquilla - Santa Marta" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Baranquilla santa marta/2.webp" alt="Barranquilla - Santa Marta" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Baranquilla santa marta/3.webp" alt="Barranquilla - Santa Marta" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Baranquilla santa marta/4.webp" alt="Barranquilla - Santa Marta" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Baranquilla santa marta/5.webp" alt="Barranquilla - Santa Marta" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Barranquilla - Santa Marta</h3>
+                            <p class="text-2xl font-bold text-purple-700 mb-4">$250.000</p>
+                            <div class="tour-description">
+                                <div class="description-content">
+                                    <p class="text-white">
+                                        Explora la costa caribeña colombiana visitando las vibrantes ciudades de Barranquilla y Santa Marta, descubriendo su rica historia, cultura y hermosas playas.
+                                    </p>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <a href="#" class="bg-caribbean-red hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300">
+                                        Pagar reserva
+                                    </a>
+                                    <a href="https://wa.me/573019841613" class="bg-green-500 hover:bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <i class="fab fa-whatsapp text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tour Card 32 - Isla Punta Arena Tierra Bomba -->
+                    <div class="tour-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                        <div class="swiper h-56">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/Punta arena tierra bomba/1.webp" alt="Isla Punta Arena Tierra Bomba" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Punta arena tierra bomba/2.webp" alt="Isla Punta Arena Tierra Bomba" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Punta arena tierra bomba/3.webp" alt="Isla Punta Arena Tierra Bomba" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Punta arena tierra bomba/4.webp" alt="Isla Punta Arena Tierra Bomba" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Isla Punta Arena Tierra Bomba</h3>
+                            <p class="text-2xl font-bold text-purple-700 mb-4">$80.000</p>
+                            <div class="tour-description">
+                                <div class="description-content">
+                                    <p class="text-white">
+                                        Descubre la belleza natural de Isla Punta Arena en Tierra Bomba, un destino tranquilo perfecto para relajarte y disfrutar del auténtico ambiente caribeño.
+                                    </p>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <a href="#" class="bg-caribbean-red hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300">
+                                        Pagar reserva
+                                    </a>
+                                    <a href="https://wa.me/573019841613" class="bg-green-500 hover:bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <i class="fab fa-whatsapp text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                         </div>
                     </template>
                     
@@ -1481,8 +1618,9 @@
         </div>
     </footer>
 
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <!-- Scripts moved to end for better performance -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.0/dist/cdn.min.js" defer></script>
     <script src="script.js"></script>
 </body>
 </html>
