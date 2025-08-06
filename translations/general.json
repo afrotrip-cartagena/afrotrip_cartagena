@@ -27,7 +27,10 @@
       "location": "Ubicación",
       "locationValue": "Cartagena de Indias, Colombia",
       "schedule": "Horario",
-      "scheduleValue": "Lunes a Domingo: 8:00 AM - 8:00 PM"
+      "scheduleValue": "Lunes a Domingo: 8:00 AM - 8:00 PM",
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "tiktok": "TikTok"
     },
     "footer": {
       "slogan": "Vive la experiencia caribeña",
@@ -62,7 +65,10 @@
       "location": "Location",
       "locationValue": "Cartagena de Indias, Colombia",
       "schedule": "Schedule",
-      "scheduleValue": "Monday to Sunday: 8:00 AM - 8:00 PM"
+      "scheduleValue": "Monday to Sunday: 8:00 AM - 8:00 PM",
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "tiktok": "TikTok"
     },
     "footer": {
       "slogan": "Live the Caribbean experience",
