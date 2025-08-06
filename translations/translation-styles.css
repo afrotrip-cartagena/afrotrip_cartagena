@@ -1,8 +1,10 @@
-/* Estilos para el botón de traducción */
+/* Estilos optimizados para el botón de traducción */
 #translate-btn {
     z-index: 1000;
     box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform;
+    backface-visibility: hidden;
 }
 
 #translate-btn:hover {
@@ -27,17 +29,36 @@
     }
 }
 
-/* Animación suave para cambios de texto */
+/* Optimización de transiciones */
 .tour-card h3,
 .tour-card p,
 button span,
 nav span {
     transition: opacity 0.2s ease-in-out;
+    will-change: auto;
 }
 
-/* Estilo para el indicador de idioma */
+/* Estilo optimizado para el indicador de idioma */
 #translate-btn span {
     font-size: 0.7rem;
     font-weight: 600;
     margin-top: 1px;
+}
+
+/* Optimizaciones de rendimiento */
+.tour-card {
+    contain: layout style;
+}
+
+.swiper {
+    contain: layout;
+}
+
+/* Reducir repaints durante traducciones */
+.tour-card.translating {
+    will-change: contents;
+}
+
+.tour-card:not(.translating) {
+    will-change: auto;
 }

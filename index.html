@@ -18,6 +18,8 @@
     <link rel="preload" href="img/Tour 4 islas vip/1.webp" as="image">
     <link rel="preload" href="img/Volcan del totumo/1.webp" as="image">
     <link rel="preload" href="img/Playa blanca baru/1.webp" as="image">
+    <link rel="preload" href="translations/general.json" as="fetch" crossorigin>
+    <link rel="preload" href="translations/tours.json" as="fetch" crossorigin>
     
     <!-- DNS prefetch for external resources -->
     <link rel="dns-prefetch" href="//cdn.tailwindcss.com">
@@ -93,14 +95,8 @@
     showMoreTours: false,
     currentLanguage: 'es',
     translations: {
-        viewMoreTours: { 
-            es: 'Ver más tours', 
-            en: 'View more tours' 
-        },
-        viewLessTours: { 
-            es: 'Ver menos tours', 
-            en: 'View less tours' 
-        }
+        viewMoreTours: { es: 'Ver más tours', en: 'View more tours' },
+        viewLessTours: { es: 'Ver menos tours', en: 'View less tours' }
     },
     getMoreToursText() {
         return this.showMoreTours ? 
@@ -108,25 +104,10 @@
             this.translations.viewMoreTours[this.currentLanguage];
     },
     init() {
-        // Escuchar cambios de idioma
+        // Escuchar cambios de idioma de forma optimizada
         document.addEventListener('language-changed', (event) => {
             this.currentLanguage = event.detail.language;
-            // Forzar re-renderizado del texto del botón
-            this.$nextTick(() => {
-                // Re-evaluar las traducciones
-                this.getMoreToursText();
-                // Retraducir tours después de que Alpine actualice el DOM
-                if (window.translationManager) {
-                    setTimeout(() => {
-                        const tours = window.translationManager.translations.tours[this.currentLanguage];
-                        window.translationManager.retranslateAllVisibleTours(tours);
-                    }, 50);
-                }
-            });
         });
-    },
-    lazyLoadImages() {
-        // Lazy loading implementation will be handled by script.js
     }
 }" x-init="init()">
     <!-- Google Tag Manager (noscript) -->
@@ -1860,14 +1841,7 @@
                 
                 <div class="text-center mt-12">
                     <button 
-                        @click="showMoreTours = !showMoreTours; $nextTick(() => { 
-                            if (window.translationManager && showMoreTours) {
-                                setTimeout(() => {
-                                    const tours = window.translationManager.translations.tours[currentLanguage];
-                                    window.translationManager.retranslateAllVisibleTours(tours);
-                                }, 100);
-                            }
-                        })" 
+                        @click="showMoreTours = !showMoreTours" 
                         class="bg-purple-700 hover:bg-purple-800 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105"
                     >
                         <span x-text="getMoreToursText()"></span>
@@ -1972,10 +1946,10 @@
     </footer>
 
     <!-- Scripts moved to end for better performance -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.0/dist/cdn.min.js" defer></script>
-    <script src="script.js"></script>
-    <!-- Translation System -->
-    <script src="translations/translator.js"></script>
+    <script src="script.js" defer></script>
+    <!-- Translation System Optimized -->
+    <script src="translations/translator-optimized.js" defer></script>
 </body>
 </html>
