@@ -106,6 +106,11 @@ class TranslationManager {
             // Traducir tours con debounce
             this.debouncedTranslateTours(tours);
             
+            // Asegurar que todos los botones se traduzcan
+            setTimeout(() => {
+                this.translateAllButtons();
+            }, 100);
+            
             document.documentElement.lang = lang;
         });
     }
@@ -165,13 +170,36 @@ class TranslationManager {
             console.log('Alpine.js integration not available');
         }
 
-        // Traducir botones "Pagar reserva" de forma optimizada
-        const payButtons = document.querySelectorAll('.tour-card a[href="#"]');
-        const fragment = document.createDocumentFragment();
+        // Traducir botones "Pagar reserva" de forma optimizada - TODOS los botones
+        const payButtons = document.querySelectorAll('.tour-card a[href="#"], .tour-card a[href*="wa.me"]');
         
         payButtons.forEach(btn => {
-            if (btn.textContent.includes('Pagar') || btn.textContent.includes('Pay')) {
+            const btnText = btn.textContent.trim();
+            if (btnText.includes('Pagar') || btnText.includes('Pay') || btnText === 'Pagar reserva' || btnText === 'Pay reservation') {
                 btn.textContent = buttons.payReservation;
+            }
+        });
+
+        // Traducir botón "Ver más tours" específicamente
+        const viewMoreButton = document.querySelector('#view-more-btn');
+        const viewLessButton = document.querySelector('#view-less-btn');
+        
+        if (viewMoreButton) {
+            viewMoreButton.textContent = buttons.viewMoreTours;
+        }
+        
+        if (viewLessButton) {
+            viewLessButton.textContent = buttons.viewLessTours;
+        }
+
+        // Buscar y traducir cualquier botón con texto relacionado
+        const allButtons = document.querySelectorAll('button, .btn, [role="button"]');
+        allButtons.forEach(btn => {
+            const text = btn.textContent.trim();
+            if (text.includes('Ver más') || text.includes('View more')) {
+                btn.textContent = buttons.viewMoreTours;
+            } else if (text.includes('Ver menos') || text.includes('View less')) {
+                btn.textContent = buttons.viewLessTours;
             }
         });
     }
@@ -239,6 +267,15 @@ class TranslationManager {
                     if (title) title.textContent = tourData.name;
                     if (price) price.textContent = tourData.price;
                     if (description) description.textContent = tourData.description;
+                    
+                    // Traducir botón "Pagar reserva" de este tour específico
+                    const payButton = card.querySelector('a[href="#"], a[href*="wa.me"]');
+                    if (payButton) {
+                        const generalTranslations = this.translations.general[this.currentLanguage];
+                        if (generalTranslations?.buttons) {
+                            payButton.textContent = generalTranslations.buttons.payReservation;
+                        }
+                    }
                 }
             }
             
@@ -246,10 +283,50 @@ class TranslationManager {
             
             if (index < tourCards.length) {
                 requestAnimationFrame(processBatch);
+            } else {
+                // Después de traducir todos los tours, traducir botones generales
+                this.translateAllButtons();
             }
         };
         
         processBatch();
+    }
+
+    translateAllButtons() {
+        const generalTranslations = this.translations.general[this.currentLanguage];
+        if (!generalTranslations?.buttons) return;
+
+        // Traducir botón "Ver más tours" específicamente
+        const viewMoreButton = document.querySelector('#view-more-btn');
+        const viewLessButton = document.querySelector('#view-less-btn');
+        
+        if (viewMoreButton) {
+            viewMoreButton.textContent = generalTranslations.buttons.viewMoreTours;
+        }
+        
+        if (viewLessButton) {
+            viewLessButton.textContent = generalTranslations.buttons.viewLessTours;
+        }
+
+        // Buscar y traducir cualquier botón con texto relacionado
+        const allButtons = document.querySelectorAll('button, .btn, [role="button"]');
+        allButtons.forEach(btn => {
+            const text = btn.textContent.trim();
+            if (text.includes('Ver más') || text.includes('View more')) {
+                btn.textContent = generalTranslations.buttons.viewMoreTours;
+            } else if (text.includes('Ver menos') || text.includes('View less')) {
+                btn.textContent = generalTranslations.buttons.viewLessTours;
+            }
+        });
+
+        // Re-traducir todos los botones "Pagar reserva" para asegurar
+        const payButtons = document.querySelectorAll('.tour-card a[href="#"], .tour-card a[href*="wa.me"]');
+        payButtons.forEach(btn => {
+            const btnText = btn.textContent.trim();
+            if (btnText.includes('Pagar') || btnText.includes('Pay') || btnText === 'Pagar reserva' || btnText === 'Pay reservation') {
+                btn.textContent = generalTranslations.buttons.payReservation;
+            }
+        });
     }
 
     setupOptimizedObservers() {
@@ -262,6 +339,8 @@ class TranslationManager {
                 if (this.currentLanguage !== 'es') {
                     const tours = this.translations.tours[this.currentLanguage];
                     this.translateTours(tours);
+                    // También traducir botones generales cuando hay cambios
+                    this.translateAllButtons();
                 }
             }, 200);
         };
