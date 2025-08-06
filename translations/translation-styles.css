@@ -1,0 +1,43 @@
+/* Estilos para el botón de traducción */
+#translate-btn {
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+    transition: all 0.3s ease;
+}
+
+#translate-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(220, 38, 38, 0.4);
+}
+
+#translate-btn:active {
+    transform: scale(0.95);
+}
+
+/* Asegurar que el botón esté por encima de otros elementos */
+@media (max-width: 768px) {
+    #translate-btn {
+        bottom: 5rem; /* Espacio para la navegación móvil */
+    }
+}
+
+@media (min-width: 769px) {
+    #translate-btn {
+        bottom: 1.5rem;
+    }
+}
+
+/* Animación suave para cambios de texto */
+.tour-card h3,
+.tour-card p,
+button span,
+nav span {
+    transition: opacity 0.2s ease-in-out;
+}
+
+/* Estilo para el indicador de idioma */
+#translate-btn span {
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin-top: 1px;
+}

@@ -1,0 +1,72 @@
+{
+  "es": {
+    "navigation": {
+      "home": "Inicio",
+      "tours": "Tours", 
+      "contact": "Contacto"
+    },
+    "welcome": {
+      "title": "Afrotripcartagena",
+      "description": "Tu agencia de tours locales listos para hacerte vivir lo mejor de Cartagena con pasión, cultura y sabor caribeño.",
+      "viewTours": "Ver Tours",
+      "contact": "Contactar"
+    },
+    "sections": {
+      "ourTours": "Nuestros Tours",
+      "contactUs": "Contáctanos"
+    },
+    "buttons": {
+      "payReservation": "Pagar reserva",
+      "viewMoreTours": "Ver más tours",
+      "viewLessTours": "Ver menos tours"
+    },
+    "contact": {
+      "title": "¿Listo para vivir la experiencia caribeña?",
+      "whatsapp": "WhatsApp",
+      "email": "Email",
+      "location": "Ubicación",
+      "locationValue": "Cartagena de Indias, Colombia",
+      "schedule": "Horario",
+      "scheduleValue": "Lunes a Domingo: 8:00 AM - 8:00 PM"
+    },
+    "footer": {
+      "slogan": "Vive la experiencia caribeña",
+      "copyright": "2025 Afrotripcartagena. Todos los derechos reservados."
+    }
+  },
+  "en": {
+    "navigation": {
+      "home": "Home",
+      "tours": "Tours",
+      "contact": "Contact"
+    },
+    "welcome": {
+      "title": "Afrotripcartagena",
+      "description": "Your local tour agency ready to make you experience the best of Cartagena with passion, culture and Caribbean flavor.",
+      "viewTours": "View Tours",
+      "contact": "Contact"
+    },
+    "sections": {
+      "ourTours": "Our Tours",
+      "contactUs": "Contact Us"
+    },
+    "buttons": {
+      "payReservation": "Pay reservation",
+      "viewMoreTours": "View more tours",
+      "viewLessTours": "View less tours"
+    },
+    "contact": {
+      "title": "Ready to live the Caribbean experience?",
+      "whatsapp": "WhatsApp",
+      "email": "Email",
+      "location": "Location",
+      "locationValue": "Cartagena de Indias, Colombia",
+      "schedule": "Schedule",
+      "scheduleValue": "Monday to Sunday: 8:00 AM - 8:00 PM"
+    },
+    "footer": {
+      "slogan": "Live the Caribbean experience",
+      "copyright": "2025 Afrotripcartagena. All rights reserved."
+    }
+  }
+}
