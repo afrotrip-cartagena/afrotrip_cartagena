@@ -189,6 +189,16 @@
       "name": "Isla Punta Arena Tierra Bomba",
       "price": "$80.000",
       "description": "Descubre la belleza natural de Isla Punta Arena en Tierra Bomba, un destino tranquilo perfecto para relajarte y disfrutar del auténtico ambiente caribeño."
+    },
+    "tour_39": {
+      "name": "Caminata por la ciudad amurallada",
+      "price": "$100.000",
+      "description": "Descubre la magia e historia de la ciudad amurallada de Cartagena a pie. Camina por sus calles coloniales, admira la arquitectura y sumérgete en siglos de historia y cultura caribeña."
+    },
+    "tour_40": {
+      "name": "Paseo en helicóptero",
+      "price": "$500.000",
+      "description": "Recorrido de 12 kilómetros sobre Cartagena en helicóptero despegando desde un barco en la bahía de Cartagena. Incluye almuerzo, barra libre en cócteles, DJ en vivo y show de bailarines."
     }
   },
   "en": {
@@ -381,6 +391,16 @@
       "name": "Punta Arena Tierra Bomba Island",
       "price": "$80.000",
       "description": "Discover the natural beauty of Punta Arena Island in Tierra Bomba, a peaceful destination perfect for relaxing and enjoying the authentic Caribbean atmosphere."
+    },
+    "tour_39": {
+      "name": "Walking through the walled city",
+      "price": "$100.000",
+      "description": "Discover the magic and history of Cartagena's walled city on foot. Walk through its colonial streets, admire the architecture and immerse yourself in centuries of Caribbean history and culture."
+    },
+    "tour_40": {
+      "name": "Helicopter tour",
+      "price": "$500.000",
+      "description": "12-kilometer tour over Cartagena by helicopter taking off from a boat in Cartagena bay. Includes lunch, open bar with cocktails, live DJ and dancers show."
     }
   }
 }
